@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0.1//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mente Creativa</title>
+  <link rel="shortcut icon" href="img/portada.png">
+  <style>
+    @import url("style.css");
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <h1 class="title"><a href="index.html" class="linksPrincipal">Inicio</a></h1>
+      <ul class="elements">
+        <li class="elements"><a href="index.html#juegosSeccion" class="linksPrincipal">Juegos</a></li>
+        <li class="elements"><a href="Contactos.html" class="linksPrincipal">Contactos</a></li>
+        <li class="elements"><a href="" class="linksPrincipal">Comunidad</a></li>
+        <li class="elements"><a href="Login.html" class="linksPrincipal">Iniciar Sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="titlePrincipal">
+    <h1>Mente Creativa</h1>
+    <div class='console-container'><span id='text'></span>
+      <div class='console-underscore' id='console'>&#95;</div>
+    </div>
+  </div>
+
+  <article class="juegos" id="juegosSeccion">
+    <h1 class="sub">Juegos</h1>
+    <a href="/Juegos/Simon Dice/index.html" target="_blank"><div class="juego" style="background-image: url(img/img1.jpeg);">Simon Dice</div></a>
+    <div class="juego" style="background-image: url(img/img2.jpeg);">Math Kart</div>
+    <div class="juego" style="background-image: url(img/img3.jpeg);">Proximamente</div>
+  </article>
+
+  <!-- <hr class="lineaDegradada"> -->
+
+  <article class="ubi">
+    <h1 class="sub3">Gran potencial</h1>
+  </article>
+
+  <article class="ubi1">
+    <div class="contenido"><h1 class="titulo">Interés<br>creciente</h1></div>
+    <div class="contenido"><h1 class="description">Existe un interés creciente en el TDAH y en la forma en que los videojuegos pueden ser utilizados como herramientas terapéuticas o educativas para mejorar la calidad de vida de las personas con este trastorno.</h1></div>
+  </article>
+
+  <article class="ubi2">
+    <div class="contenido"><h1 class="description">Los videojuegos pueden ofrecer beneficios terapéuticos significativos para las personas con TDAH, ayudando a mejorar la atención, la concentración, la memoria y otras habilidades cognitivas.</h1></div>
+    <div class="contenido"><h1 class="titulo">Impacto<br>positivo</h1></div>
+  </article>
+
+  <article class="ubi3">
+    <div class="contenido"><h1 class="titulo">Comunidad<br>en línea</h1></div>
+    <div class="contenido"><h1 class="description">Internet ofrece un espacio ideal para construir una comunidad en línea de personas interesadas en el TDAH y los videojuegos, donde se pueden compartir experiencias, consejos y recursos de manera rápida y accesible.</h1></div>
+  </article>
+
+  <article class="ubi4">
+    <div class="contenido"><h1 class="description">La industria de los videojuegos está en constante evolución, lo que significa que siempre habrá nuevas oportunidades para desarrollar juegos y aplicaciones que sean beneficiosos para las personas con TDAH.</h1></div>
+    <div class="contenido"><h1 class="titulo">Innovación<br>continua</h1></div>
+  </article>
+
+  
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-row">
+        <div class="footer-links">
+          <h4>¿Quienes somos?</h4>
+          <ul>
+            <li><a href="">Nosotros</a></li>
+            <li><a href="">Nuestro objetivo</a></li>
+            <li><a href="">Misión</a></li>
+            <li><a href="">Visión</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>TDAH</h4>
+          <ul>
+            <li><a href="#tdah">¿Qué es?</a></li>
+            <li><a href="">Causas</a></li>
+            <li><a href="">Estrategias de atención</a></li>
+            <li><a href="">Sistema de optimización de tratamiento</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Contactanos</h4>
+          <ul>
+            <li><a href="Contactar.html">Contactar aquí</a></li>
+            <li><a href="">Facebook</a></li>
+            <li><a href="">Instagram</a></li>
+            <li><a href="">Email</a></li>
+            <li><a href="">X</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    consoleText(['Jugando Aprendemos Más', 'Tu creatividad no tiene límites', 'Tu enfoque puede ser diferente'], 'text', ['Aqua', 'yellowgreen', 'Pink']);
+
+    function consoleText(words, id, colors) {
+      if (colors === undefined) colors = ['#fff'];
+      var visible = true;
+      var con = document.getElementById('console');
+      var letterCount = 1;
+      var x = 1;
+      var waiting = false;
+      var target = document.getElementById(id)
+      target.setAttribute('style', 'color:' + colors[0])
+      window.setInterval(function () {
+
+        if (letterCount === 0 && waiting === false) {
+          waiting = true;
+          target.innerHTML = words[0].substring(0, letterCount)
+          window.setTimeout(function () {
+            var usedColor = colors.shift();
+            colors.push(usedColor);
+            var usedWord = words.shift();
+            words.push(usedWord);
+            x = 1;
+            target.setAttribute('style', 'color:' + colors[0])
+            letterCount += x;
+            waiting = false;
+          }, 1000)
+        } else if (letterCount === words[0].length + 1 && waiting === false) {
+          waiting = true;
+          window.setTimeout(function () {
+            x = -1;
+            letterCount += x;
+            waiting = false;
+          }, 1000)
+        } else if (waiting === false) {
+          target.innerHTML = words[0].substring(0, letterCount)
+          letterCount += x;
+        }
+      }, 120)
+      window.setInterval(function () {
+        if (visible === true) {
+          con.className = 'console-underscore hidden'
+          visible = false;
+
+        } else {
+          con.className = 'console-underscore'
+
+          visible = true;
+        }
+      }, 400)
+    }
+  </script>
+</body>
+
+</html>
